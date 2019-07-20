@@ -13,6 +13,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        NetworkManager.fetchData(endPoint: ContactsEndPoint(), success: { (response: [Contact]) in
+            print(response)
+        }) { (error) in
+            print(error)
+        }
     }
 
 

@@ -10,6 +10,9 @@
 		7941BBCE153B9107CD156528 /* Pods_GojekContactsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A98C8D8A809E45FEFFC0C64 /* Pods_GojekContactsApp.framework */; };
 		9E24BA2D22E2FB8C00CF46D2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24BA2C22E2FB8C00CF46D2 /* NetworkManager.swift */; };
 		9E24BA3022E3008200CF46D2 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24BA2F22E3008200CF46D2 /* EndPoint.swift */; };
+		9E24BA3322E307F100CF46D2 /* JsonSerialiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24BA3222E307F100CF46D2 /* JsonSerialiser.swift */; };
+		9E24BA3522E30AE300CF46D2 /* ContactsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24BA3422E30AE300CF46D2 /* ContactsEndpoint.swift */; };
+		9E24BA3722E30F7200CF46D2 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24BA3622E30F7100CF46D2 /* Contact.swift */; };
 		9E91992E22DCED790011D772 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E91992D22DCED790011D772 /* AppDelegate.swift */; };
 		9E91993022DCED790011D772 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E91992F22DCED790011D772 /* ViewController.swift */; };
 		9E91993322DCED790011D772 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E91993122DCED790011D772 /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 		9A98C8D8A809E45FEFFC0C64 /* Pods_GojekContactsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GojekContactsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E24BA2C22E2FB8C00CF46D2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9E24BA2F22E3008200CF46D2 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		9E24BA3222E307F100CF46D2 /* JsonSerialiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonSerialiser.swift; sourceTree = "<group>"; };
+		9E24BA3422E30AE300CF46D2 /* ContactsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsEndpoint.swift; sourceTree = "<group>"; };
+		9E24BA3622E30F7100CF46D2 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		9E91992A22DCED790011D772 /* GojekContactsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GojekContactsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E91992D22DCED790011D772 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E91992F22DCED790011D772 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,8 +71,18 @@
 			isa = PBXGroup;
 			children = (
 				9E24BA2C22E2FB8C00CF46D2 /* NetworkManager.swift */,
+				9E24BA3222E307F100CF46D2 /* JsonSerialiser.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		9E24BA3122E303BB00CF46D2 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				9E24BA2F22E3008200CF46D2 /* EndPoint.swift */,
+				9E24BA3422E30AE300CF46D2 /* ContactsEndpoint.swift */,
+			);
+			path = Endpoints;
 			sourceTree = "<group>";
 		};
 		9E91992122DCED790011D772 = {
@@ -92,7 +108,8 @@
 			children = (
 				9E91992D22DCED790011D772 /* AppDelegate.swift */,
 				9E91992F22DCED790011D772 /* ViewController.swift */,
-				9E24BA2F22E3008200CF46D2 /* EndPoint.swift */,
+				9E24BA3622E30F7100CF46D2 /* Contact.swift */,
+				9E24BA3122E303BB00CF46D2 /* Endpoints */,
 				9E24BA2E22E2FED700CF46D2 /* Network */,
 				9E91993122DCED790011D772 /* Main.storyboard */,
 				9E91993422DCED7B0011D772 /* Assets.xcassets */,
@@ -217,10 +234,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E24BA3322E307F100CF46D2 /* JsonSerialiser.swift in Sources */,
+				9E24BA3522E30AE300CF46D2 /* ContactsEndpoint.swift in Sources */,
 				9E24BA2D22E2FB8C00CF46D2 /* NetworkManager.swift in Sources */,
 				9E91993022DCED790011D772 /* ViewController.swift in Sources */,
 				9E24BA3022E3008200CF46D2 /* EndPoint.swift in Sources */,
 				9E91992E22DCED790011D772 /* AppDelegate.swift in Sources */,
+				9E24BA3722E30F7200CF46D2 /* Contact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
