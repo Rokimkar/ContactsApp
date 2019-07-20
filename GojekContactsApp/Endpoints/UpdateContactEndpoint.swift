@@ -1,20 +1,20 @@
 //
-//  ContactsEndpoint.swift
+//  UpdateContactEndpoint.swift
 //  GojekContactsApp
 //
-//  Created by S@nchit on 20/07/19.
+//  Created by S@nchit on 21/07/19.
 //  Copyright © 2019 self. All rights reserved.
 //
 
 import Foundation
 
-struct ContactsEndPoint: EndPoint{
+struct UpdateContactEndpoint: EndPoint {
     var path: String{
-        return "contacts.json"
+        return "contacts/\(contactId).json"
     }
     
     var method: RequestMethod{
-        return .GET
+        return .PUT
     }
     
     var headers: [String : String]?{
@@ -22,6 +22,11 @@ struct ContactsEndPoint: EndPoint{
     }
     
     var parameters: [String : Any]?{
-        return nil
+        return appendedParameters
     }
+    
+    var contactId: Int
+    var appendedParameters: [String:Any]
+    
+    
 }
