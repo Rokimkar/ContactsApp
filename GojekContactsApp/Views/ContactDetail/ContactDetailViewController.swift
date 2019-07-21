@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class ContactDetailViewController: UIViewController {
 
@@ -59,6 +60,25 @@ class ContactDetailViewController: UIViewController {
         self.view.layer.insertSublayer(self.gradient!, at: 0)
     }
     
+    private func displayMessageInterface() {
+        if let number = contactViewModel?.phoneNumberStr{
+            let composeVC = MFMessageComposeViewController()
+            composeVC.messageComposeDelegate = self
+            
+            // Configure the fields of the interface.
+            composeVC.recipients = [number]
+            composeVC.body = ""
+            
+            // Present the view controller modally.
+            if MFMessageComposeViewController.canSendText() {
+                self.present(composeVC, animated: true, completion: nil)
+            } else {
+                print("Can't send messages.")
+            }
+        }
+        
+    }
+    
     @IBAction func favoriteTapped(_ sender: Any) {
         contactViewModel?.favoriteContact(success: { (status: Bool?) in
             if let isFavorited = status, isFavorited{
@@ -75,9 +95,27 @@ class ContactDetailViewController: UIViewController {
     
     @IBAction func callTapped(_ sender: Any) {
         // call
+        if let number: String = contactViewModel?.phoneNumberStr,let url = URL(string: "tel://\(number)"),
+            UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler:nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        } else {
+            // add error message here
+        }
     }
     
     @IBAction func messageTapped(_ sender: Any) {
         // open message
+        displayMessageInterface()
+    }
+}
+
+
+extension ContactDetailViewController: MFMessageComposeViewControllerDelegate {
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
     }
 }
