@@ -24,6 +24,8 @@
 		9EC3FEBB22E3648A006D798D /* ContactListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EC3FEB922E3648A006D798D /* ContactListTableViewCell.xib */; };
 		9EC3FEBD22E37F7F006D798D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3FEBC22E37F7F006D798D /* Constants.swift */; };
 		9EC3FEBF22E3B58D006D798D /* UpdateContactEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3FEBE22E3B58D006D798D /* UpdateContactEndpoint.swift */; };
+		9EC3FEC222E46FC6006D798D /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3FEC022E46FC6006D798D /* ContactDetailViewController.swift */; };
+		9EC3FEC322E46FC6006D798D /* ContactDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EC3FEC122E46FC6006D798D /* ContactDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		9EC3FEB922E3648A006D798D /* ContactListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactListTableViewCell.xib; sourceTree = "<group>"; };
 		9EC3FEBC22E37F7F006D798D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9EC3FEBE22E3B58D006D798D /* UpdateContactEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateContactEndpoint.swift; sourceTree = "<group>"; };
+		9EC3FEC022E46FC6006D798D /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
+		9EC3FEC122E46FC6006D798D /* ContactDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactDetailViewController.xib; sourceTree = "<group>"; };
 		DFC1085A7F89CCA868C41987 /* Pods-GojekContactsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GojekContactsApp.debug.xcconfig"; path = "Target Support Files/Pods-GojekContactsApp/Pods-GojekContactsApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				9EC3FEB522E35C1A006D798D /* ContactListView */,
+				9EC3FEC422E46FD3006D798D /* ContactDetail */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +172,15 @@
 				9EC3FEB922E3648A006D798D /* ContactListTableViewCell.xib */,
 			);
 			path = ContactListView;
+			sourceTree = "<group>";
+		};
+		9EC3FEC422E46FD3006D798D /* ContactDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9EC3FEC022E46FC6006D798D /* ContactDetailViewController.swift */,
+				9EC3FEC122E46FC6006D798D /* ContactDetailViewController.xib */,
+			);
+			path = ContactDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +246,7 @@
 				9EC3FEBB22E3648A006D798D /* ContactListTableViewCell.xib in Resources */,
 				9E91993822DCED7B0011D772 /* LaunchScreen.storyboard in Resources */,
 				9E91993522DCED7B0011D772 /* Assets.xcassets in Resources */,
+				9EC3FEC322E46FC6006D798D /* ContactDetailViewController.xib in Resources */,
 				9E91993322DCED790011D772 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +308,7 @@
 				9E91993022DCED790011D772 /* ContactsListViewController.swift in Sources */,
 				9EC3FEBF22E3B58D006D798D /* UpdateContactEndpoint.swift in Sources */,
 				9E24BA3022E3008200CF46D2 /* EndPoint.swift in Sources */,
+				9EC3FEC222E46FC6006D798D /* ContactDetailViewController.swift in Sources */,
 				9EC3FEBA22E3648A006D798D /* ContactListTableViewCell.swift in Sources */,
 				9EC3FEB122E359FB006D798D /* ContactListViewModal.swift in Sources */,
 				9E91992E22DCED790011D772 /* AppDelegate.swift in Sources */,
