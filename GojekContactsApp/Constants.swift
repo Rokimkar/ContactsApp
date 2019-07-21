@@ -23,3 +23,11 @@ struct ImageConstants{
 struct ColorConstants {
     static let applicationColor: UIColor = UIColor(red: 80.0/255.0, green: 227.0/255.0, blue: 194.0/255.0, alpha: 1.0)
 }
+
+struct ServerConstants {
+    static let firstName: String = "first_name"
+    static let lastName: String = "last_name"
+    static let favorite: String = "favorite"
+    static let phoneNumber: String = "phone_number"
+    static let email: String = "email"
+}

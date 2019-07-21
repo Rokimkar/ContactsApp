@@ -16,6 +16,7 @@ final class ContactsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContactListTableView()
+        setupNavigationBarButtons()
         contactListViewModal.fetchContacts {[weak self] (_) in
             self?.contactListTableView.reloadData()
         }
@@ -27,6 +28,20 @@ final class ContactsListViewController: UIViewController {
         self.contactListTableView.delegate = self
         self.contactListTableView.register(UINib.init(nibName: "ContactListTableViewCell", bundle: nil), forCellReuseIdentifier: "ContactListTableViewCell")
         self.contactListTableView.backgroundColor = .clear
+    }
+    
+    private func setupNavigationBarButtons(){
+        self.title = "Contacts"
+        let leftItem = UIBarButtonItem(title: "Group", style: .plain, target: self, action: nil)
+        self.navigationItem.leftBarButtonItem = leftItem
+        
+        let rightItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewContact))
+        self.navigationItem.rightBarButtonItem = rightItem
+    }
+    
+    @objc func addNewContact(){
+        let addContactVC : AddContactViewController = AddContactViewController(nibName: "AddContactViewController", bundle: nil)
+        self.navigationController?.pushViewController(addContactVC, animated: true)
     }
 }
 

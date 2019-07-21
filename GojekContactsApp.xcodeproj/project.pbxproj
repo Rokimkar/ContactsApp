@@ -29,6 +29,7 @@
 		9EC3FEC622E4C439006D798D /* ContactDetailEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3FEC522E4C439006D798D /* ContactDetailEndpoint.swift */; };
 		9EC3FEC922E4D720006D798D /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3FEC722E4D720006D798D /* AddContactViewController.swift */; };
 		9EC3FECA22E4D720006D798D /* AddContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EC3FEC822E4D720006D798D /* AddContactViewController.xib */; };
+		9EC3FECD22E511C4006D798D /* CreateContactEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3FECC22E511C4006D798D /* CreateContactEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		9EC3FEC522E4C439006D798D /* ContactDetailEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailEndpoint.swift; sourceTree = "<group>"; };
 		9EC3FEC722E4D720006D798D /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		9EC3FEC822E4D720006D798D /* AddContactViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddContactViewController.xib; sourceTree = "<group>"; };
+		9EC3FECC22E511C4006D798D /* CreateContactEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactEndpoint.swift; sourceTree = "<group>"; };
 		DFC1085A7F89CCA868C41987 /* Pods-GojekContactsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GojekContactsApp.debug.xcconfig"; path = "Target Support Files/Pods-GojekContactsApp/Pods-GojekContactsApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				9E24BA3422E30AE300CF46D2 /* ContactsEndpoint.swift */,
 				9EC3FEBE22E3B58D006D798D /* UpdateContactEndpoint.swift */,
 				9EC3FEC522E4C439006D798D /* ContactDetailEndpoint.swift */,
+				9EC3FECC22E511C4006D798D /* CreateContactEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				9E24BA3522E30AE300CF46D2 /* ContactsEndpoint.swift in Sources */,
 				9EC3FEB322E35B43006D798D /* ContactViewModal.swift in Sources */,
 				9E24BA2D22E2FB8C00CF46D2 /* NetworkManager.swift in Sources */,
+				9EC3FECD22E511C4006D798D /* CreateContactEndpoint.swift in Sources */,
 				9E91993022DCED790011D772 /* ContactsListViewController.swift in Sources */,
 				9EC3FEBF22E3B58D006D798D /* UpdateContactEndpoint.swift in Sources */,
 				9E24BA3022E3008200CF46D2 /* EndPoint.swift in Sources */,

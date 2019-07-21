@@ -40,6 +40,15 @@ extension Contact: ContactViewModal{
         return self.phoneNumber ?? ""
     }
     
+    func createContact(success: @escaping ()->Void){
+        let appendedParameter: [String:Any] = [ServerConstants.firstName:self.contactName,ServerConstants.lastName:contactLastName,ServerConstants.phoneNumber:phoneNumberStr,ServerConstants.email:emailId]
+        NetworkManager.fetchData(endPoint: CreateContactEndpoint(appendedParameters: appendedParameter), success: { (contact: Contact?) in
+            success()
+        }) { (error: Error?) in
+            success()
+        }
+    }
+    
     func fetchFullContact(success: @escaping () -> Void) {
         NetworkManager.fetchData(endPoint: ContactDetailEndpoint(contactId: self.id ?? 0), success: {[weak self] (contact: Contact) in
             self?.id = contact.id
@@ -59,7 +68,7 @@ extension Contact: ContactViewModal{
     }
     
     func favoriteContact(success: @escaping (Bool?) -> Void) {
-        NetworkManager.fetchData(endPoint: UpdateContactEndpoint(contactId: self.id ?? 0, appendedParameters: ["favorite" : !isFavorited]), success: {[weak self] (response: Contact) in
+        NetworkManager.fetchData(endPoint: UpdateContactEndpoint(contactId: self.id ?? 0, appendedParameters: [ServerConstants.favorite : !isFavorited]), success: {[weak self] (response: Contact) in
             self?.favorite = response.favorite
             success(self?.favorite)
         }) {[weak self] (error: Error?) in

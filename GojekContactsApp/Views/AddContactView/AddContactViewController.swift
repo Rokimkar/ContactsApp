@@ -17,20 +17,42 @@ public enum AddContactTextFields: Int {
 
 class AddContactViewController: UIViewController {
     
+    @IBOutlet weak var cameraIconImageView: UIImageView!
+    @IBOutlet weak var profilePicImageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var lastNameTextfield: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var firstNameTextfield: UITextField!
     
+    private var gradient: CAGradientLayer?
+    
     private var contact: Contact = Contact.init()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let rightItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(createContact))
+        self.navigationItem.rightBarButtonItem = rightItem
+        addBackgroundLayer()
+        setupTextFields()
+    }
+    
+    private func addBackgroundLayer(){
+        self.gradient = CAGradientLayer()
+        self.gradient?.colors = [UIColor.white.cgColor, ColorConstants.applicationColor.withAlphaComponent(0.1).cgColor]
+        self.gradient?.locations = [0.0 , 1.0]
+        self.gradient?.startPoint = CGPoint(x: 1.0, y: 0.0)
+        self.gradient?.endPoint = CGPoint(x: 1.0, y: 1.0)
+        let viewFrame: CGRect = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: 200 + (self.navigationController?.navigationBar.frame.height ?? 0))
+        self.gradient?.frame = viewFrame
+        self.view.layer.insertSublayer(self.gradient!, at: 0)
     }
     
     private func setupTextFields(){
+        self.firstNameTextfield.delegate = self
         self.emailTextField.delegate = self
+        self.lastNameTextfield.delegate = self
+        self.phoneNumberTextField.delegate = self
+        
     }
     
     private func updateData(updatedText: String,textField: AddContactTextFields){
@@ -66,8 +88,32 @@ class AddContactViewController: UIViewController {
         
     }
     
-    private func createContact(){
-        
+    @objc private func createContact(){
+        func checkContactAndShowAlert(){
+            var textFieldEmptyTag: AddContactTextFields?
+            if contact.firstName == nil{
+                textFieldEmptyTag = .firstName
+            }
+            if contact.lastName == nil{
+                textFieldEmptyTag = .lastName
+            }
+            if contact.email == nil{
+                textFieldEmptyTag = .email
+            }
+            if contact.phoneNumber == nil{
+                textFieldEmptyTag = .phoneNumber
+            }
+            if let _ = textFieldEmptyTag{
+                handleAlert(textField: textFieldEmptyTag!)
+            }else{
+                contact.createContact {
+                    //
+                }
+            }
+            
+        }
+        self.emailTextField.resignFirstResponder()
+        checkContactAndShowAlert()
     }
 
 }
