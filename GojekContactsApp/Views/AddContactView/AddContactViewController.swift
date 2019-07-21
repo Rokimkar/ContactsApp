@@ -15,6 +15,10 @@ public enum AddContactTextFields: Int {
     case email = 3
 }
 
+protocol ContactUpdatedProtocol: class {
+    func updatedContact(contact: Contact) -> Void
+}
+
 class AddContactViewController: UIViewController {
     
     @IBOutlet weak var cameraIconImageView: UIImageView!
@@ -25,8 +29,8 @@ class AddContactViewController: UIViewController {
     @IBOutlet weak var firstNameTextfield: UITextField!
     
     private var gradient: CAGradientLayer?
-    
-    private var contact: Contact = Contact.init()
+    weak var updateContactDelegate: ContactUpdatedProtocol?
+    var contact: Contact = Contact.init()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +56,11 @@ class AddContactViewController: UIViewController {
         self.emailTextField.delegate = self
         self.lastNameTextfield.delegate = self
         self.phoneNumberTextField.delegate = self
+        
+        self.firstNameTextfield.text = contact.firstName
+        self.lastNameTextfield.text = contact.lastName
+        self.phoneNumberTextField.text = contact.phoneNumber
+        self.emailTextField.text = contact.email
         
     }
     
@@ -106,9 +115,24 @@ class AddContactViewController: UIViewController {
             if let _ = textFieldEmptyTag{
                 handleAlert(textField: textFieldEmptyTag!)
             }else{
-                contact.createContact {
-                    //
+                if let _ = contact.id{
+                    contact.updateContact { [weak self] in
+                        if let contact = self?.contact{
+                            self?.updateContactDelegate?.updatedContact(contact: contact)
+                        }
+                        
+                        self?.dismiss(animated: true, completion: {
+                            
+                        })
+                    }
+                }else{
+                    contact.createContact {[weak self] in
+                        self?.dismiss(animated: true, completion: {
+                            //
+                        })
+                    }
                 }
+                
             }
             
         }

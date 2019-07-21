@@ -41,7 +41,11 @@ final class ContactsListViewController: UIViewController {
     
     @objc func addNewContact(){
         let addContactVC : AddContactViewController = AddContactViewController(nibName: "AddContactViewController", bundle: nil)
-        self.navigationController?.pushViewController(addContactVC, animated: true)
+        addContactVC.title = "New Contact"
+        let navigationController: UINavigationController = UINavigationController.init(rootViewController: addContactVC)
+        self.present(navigationController, animated: true) {
+            //
+        }
     }
 }
 

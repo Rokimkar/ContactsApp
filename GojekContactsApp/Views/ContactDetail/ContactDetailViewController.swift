@@ -38,6 +38,8 @@ class ContactDetailViewController: UIViewController {
     private func setUpView(){
         self.contactImageVIew.layer.cornerRadius = self.contactImageVIew.frame.height/2
         self.contactImageVIew.image = UIImage.init(named: ImageConstants.placeHolderImage)
+        let rightItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(updateContact))
+        self.navigationItem.rightBarButtonItem = rightItem
         addBackgroundLayer()
     }
     
@@ -63,6 +65,17 @@ class ContactDetailViewController: UIViewController {
         let viewFrame: CGRect = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: 330 + (self.navigationController?.navigationBar.frame.height ?? 0))
         self.gradient?.frame = viewFrame
         self.view.layer.insertSublayer(self.gradient!, at: 0)
+    }
+    
+    @objc private func updateContact(){
+        let updateContactVC: AddContactViewController = AddContactViewController(nibName: "AddContactViewController", bundle: nil)
+        updateContactVC.contact = self.contactViewModel as? Contact ?? Contact.init()
+        updateContactVC.title = "Edit Contact"
+        updateContactVC.updateContactDelegate = self
+        let navigationController: UINavigationController = UINavigationController.init(rootViewController: updateContactVC)
+        self.present(navigationController, animated: true) {
+            //
+        }
     }
     
     private func displayMessageInterface() {
@@ -122,5 +135,12 @@ class ContactDetailViewController: UIViewController {
 extension ContactDetailViewController: MFMessageComposeViewControllerDelegate {
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+    }
+}
+
+extension ContactDetailViewController: ContactUpdatedProtocol{
+    func updatedContact(contact: Contact) {
+        self.contactViewModel = contact
+        bindData()
     }
 }
