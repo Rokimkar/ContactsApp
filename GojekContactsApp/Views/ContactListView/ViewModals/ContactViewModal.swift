@@ -9,24 +9,53 @@
 import Foundation
 
 protocol ContactViewModal {
-    var contactName: String? {get}
-    var contactLastName: String? {get}
+    var contactName: String {get}
+    var contactLastName: String {get}
     var isFavorited: Bool {get}
+    var emailId: String {get}
+    var phoneNumberStr: String {get}
     func favoriteContact(success: @escaping (Bool?) -> Void)
+    func fetchFullContact(success: @escaping()-> Void)
 }
 
 extension Contact: ContactViewModal{
     
-    var contactName: String? {
-        return self.firstName
+    var contactName: String {
+        return self.firstName ?? ""
     }
     
-    var contactLastName: String? {
-        return self.lastName
+    var contactLastName: String {
+        return self.lastName ?? ""
     }
     
     var isFavorited: Bool{
         return Bool(self.favorite ?? true)
+    }
+    
+    var emailId: String{
+        return self.email ?? ""
+    }
+    
+    var phoneNumberStr: String{
+        return self.phoneNumber ?? ""
+    }
+    
+    func fetchFullContact(success: @escaping () -> Void) {
+        NetworkManager.fetchData(endPoint: ContactDetailEndpoint(contactId: self.id ?? 0), success: {[weak self] (contact: Contact) in
+            self?.id = contact.id
+            self?.firstName = contact.firstName
+            self?.lastName = contact.lastName
+            self?.phoneNumber = contact.phoneNumber
+            self?.email = contact.email
+            self?.createdAt = contact.createdAt
+            self?.updatedAt = contact.updatedAt
+            self?.favorite = contact.favorite
+            self?.url = contact.url
+            self?.profilePicture = contact.profilePicture
+            success()
+        }) { (error: Error?) in
+            success()
+        }
     }
     
     func favoriteContact(success: @escaping (Bool?) -> Void) {

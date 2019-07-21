@@ -15,6 +15,10 @@ class Contact: Codable{
     var profilePicture : String?
     var favorite : Bool?
     var url : String?
+    var email: String?
+    var phoneNumber: String?
+    var createdAt: String?
+    var updatedAt: String?
     
     enum CodingKeys : String,CodingKey{
         case id = "id"
@@ -23,6 +27,10 @@ class Contact: Codable{
         case profilePicture = "profile_pic"
         case favorite = "favorite"
         case url = "url"
+        case email = "email"
+        case phoneNumber = "phone_number"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
     }
     
     func encode(to encoder: Encoder) throws {
@@ -34,6 +42,10 @@ class Contact: Codable{
         try? container.encode(profilePicture, forKey: .profilePicture)
         try? container.encode(favorite, forKey: .favorite)
         try? container.encode(url, forKey: .url)
+        try? container.encode(email, forKey: .email)
+        try? container.encode(phoneNumber, forKey: .phoneNumber)
+        try? container.encode(createdAt, forKey: .createdAt)
+        try? container.encode(updatedAt, forKey: .updatedAt)
     }
     
     required init(decoder : Decoder) throws{
@@ -45,5 +57,9 @@ class Contact: Codable{
         profilePicture = try? container.decode(String.self, forKey: .profilePicture)
         favorite = try? container.decode(Bool.self, forKey: .favorite)
         url = try? container.decode(String.self, forKey: .url)
+        email = try? container.decode(String.self, forKey: .email)
+        phoneNumber = try? container.decode(String.self, forKey: .phoneNumber)
+        createdAt = try? container.decode(String.self, forKey: .createdAt)
+        updatedAt = try? container.decode(String.self, forKey: .updatedAt)
     }
 }

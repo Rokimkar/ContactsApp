@@ -53,6 +53,11 @@ extension ContactsListViewController: UITableViewDataSource{
 }
 
 extension ContactsListViewController: UITableViewDelegate{
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Handle contact selection
+        let detailVC: ContactDetailViewController = ContactDetailViewController(nibName: "ContactDetailViewController", bundle: nil)
+        detailVC.contactViewModel = contactListViewModal.sortedContacts[indexPath.row]
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 

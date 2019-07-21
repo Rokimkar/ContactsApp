@@ -26,6 +26,7 @@
 		9EC3FEBF22E3B58D006D798D /* UpdateContactEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3FEBE22E3B58D006D798D /* UpdateContactEndpoint.swift */; };
 		9EC3FEC222E46FC6006D798D /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3FEC022E46FC6006D798D /* ContactDetailViewController.swift */; };
 		9EC3FEC322E46FC6006D798D /* ContactDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EC3FEC122E46FC6006D798D /* ContactDetailViewController.xib */; };
+		9EC3FEC622E4C439006D798D /* ContactDetailEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3FEC522E4C439006D798D /* ContactDetailEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		9EC3FEBE22E3B58D006D798D /* UpdateContactEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateContactEndpoint.swift; sourceTree = "<group>"; };
 		9EC3FEC022E46FC6006D798D /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 		9EC3FEC122E46FC6006D798D /* ContactDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactDetailViewController.xib; sourceTree = "<group>"; };
+		9EC3FEC522E4C439006D798D /* ContactDetailEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailEndpoint.swift; sourceTree = "<group>"; };
 		DFC1085A7F89CCA868C41987 /* Pods-GojekContactsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GojekContactsApp.debug.xcconfig"; path = "Target Support Files/Pods-GojekContactsApp/Pods-GojekContactsApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,7 @@
 				9E24BA2F22E3008200CF46D2 /* EndPoint.swift */,
 				9E24BA3422E30AE300CF46D2 /* ContactsEndpoint.swift */,
 				9EC3FEBE22E3B58D006D798D /* UpdateContactEndpoint.swift */,
+				9EC3FEC522E4C439006D798D /* ContactDetailEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EC3FEC622E4C439006D798D /* ContactDetailEndpoint.swift in Sources */,
 				9E24BA3322E307F100CF46D2 /* JsonSerialiser.swift in Sources */,
 				9EC3FEBD22E37F7F006D798D /* Constants.swift in Sources */,
 				9E24BA3522E30AE300CF46D2 /* ContactsEndpoint.swift in Sources */,
