@@ -92,7 +92,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="titleEdgeInsets" minX="-49" minY="0.0" maxX="0.0" maxY="-49"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="-17" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="favorite" image="favorite_img">
+                    <state key="normal" title="favorite" image="unFavorite_img">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -179,7 +179,7 @@
     <resources>
         <image name="call_img" width="45" height="44"/>
         <image name="email_img" width="45" height="44"/>
-        <image name="favorite_img" width="44" height="44"/>
         <image name="message_img" width="44" height="44"/>
+        <image name="unFavorite_img" width="44" height="44"/>
     </resources>
 </document>

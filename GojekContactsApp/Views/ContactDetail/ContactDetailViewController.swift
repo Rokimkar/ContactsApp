@@ -46,6 +46,11 @@ class ContactDetailViewController: UIViewController {
             self.contactNameLabel.text = contact.contactName  + " " + contact.contactLastName
             self.contactEmailLabel.text = contact.emailId
             self.contactNumberLabel.text = contact.phoneNumberStr
+            if contact.isFavorited{
+                self.favoriteButton.setImage(UIImage.init(named: ImageConstants.favoriteImage), for: .normal)
+            }else{
+                self.favoriteButton.setImage(UIImage.init(named: ImageConstants.unFavoriteImage), for: .normal)
+            }
         }
     }
     
@@ -80,11 +85,11 @@ class ContactDetailViewController: UIViewController {
     }
     
     @IBAction func favoriteTapped(_ sender: Any) {
-        contactViewModel?.favoriteContact(success: { (status: Bool?) in
+        contactViewModel?.favoriteContact(success: {[weak self] (status: Bool?) in
             if let isFavorited = status, isFavorited{
-                self.favoriteButton.setImage(UIImage.init(named: ImageConstants.favoriteImage), for: .normal)
+                self?.favoriteButton.setImage(UIImage.init(named: ImageConstants.favoriteImage), for: .normal)
             }else{
-                self.favoriteButton.setImage(UIImage.init(named: ImageConstants.unFavoriteImage), for: .normal)
+                self?.favoriteButton.setImage(UIImage.init(named: ImageConstants.unFavoriteImage), for: .normal)
             }
         })
     }

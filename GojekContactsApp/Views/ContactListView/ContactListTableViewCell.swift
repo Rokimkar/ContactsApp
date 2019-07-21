@@ -34,18 +34,18 @@ class ContactListTableViewCell: UITableViewCell {
     }
 
     @IBAction func favoriteButtonTapped(_ sender: Any) {
-        contact?.favoriteContact(success: {[weak self] (isFavorited: Bool?) in
-            if let isFavorited: Bool = isFavorited{
-                self?.setFavoriteButtonState(status: isFavorited)
-            }
-        })
+        if let isFavorited: Bool = contact?.isFavorited, isFavorited{
+            self.setFavoriteButtonState(status: isFavorited)
+        }else{
+            self.setFavoriteButtonState(status: false)
+        }
     }
     
     private func setFavoriteButtonState(status: Bool){
         if status{
-            self.favoriteButton.setImage(UIImage.init(named: ImageConstants.favoriteImage), for: .normal)
+            self.favoriteButton.setImage(UIImage.init(named: ImageConstants.favoriteStatus), for: .normal)
         }else{
-            self.favoriteButton.setImage(UIImage.init(named: ImageConstants.unFavoriteImage), for: .normal)
+            self.favoriteButton.setImage(UIImage.init(named: ""), for: .normal)
         }
     }
     

@@ -16,6 +16,7 @@ struct ImageConstants{
     static let emailImage: String = "email_img"
     static let favoriteImage: String = "favorite_img"
     static let unFavoriteImage: String = "unFavorite_img"
+    static let favoriteStatus: String = "favoriteStatus_img"
     static let cameraImage: String = "camera_img"
 }
 
