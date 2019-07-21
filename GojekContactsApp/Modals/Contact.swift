@@ -20,6 +20,10 @@ class Contact: Codable{
     var createdAt: String?
     var updatedAt: String?
     
+    init() {
+        
+    }
+    
     enum CodingKeys : String,CodingKey{
         case id = "id"
         case firstName = "first_name"

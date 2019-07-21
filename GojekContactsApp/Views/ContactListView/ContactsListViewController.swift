@@ -19,8 +19,7 @@ final class ContactsListViewController: UIViewController {
         contactListViewModal.fetchContacts {[weak self] (_) in
             self?.contactListTableView.reloadData()
         }
-        //self.view.backgroundColor = ColorConstants.applicationColor
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = .white
     }
 
     private func setupContactListTableView(){
