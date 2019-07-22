@@ -51,14 +51,18 @@ final class ContactsListViewController: UIViewController {
 
 extension ContactsListViewController: UITableViewDataSource{
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return contactListViewModal.contactLists.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactListViewModal.sortedContacts.count
+        return contactListViewModal.contactLists[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactListTableViewCell", for: indexPath)
         if let cell = cell as? ContactListTableViewCell{
-            cell.bindData(item: contactListViewModal.sortedContacts[indexPath.row])
+            cell.bindData(item: contactListViewModal.contactLists[indexPath.section][indexPath.row])
         }
         cell.selectionStyle = .none
         return cell
@@ -67,6 +71,26 @@ extension ContactsListViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView: UIView = UIView.init(frame: CGRect.init(x: 20, y: 5, width: UIScreen.main.bounds.width, height: 20))
+        headerView.backgroundColor = UIColor.init(red: 215/255, green: 215/255, blue: 215/255, alpha: 1)
+        let titleLabel: UILabel = UILabel.init(frame: headerView.frame)
+        titleLabel.text = self.contactListViewModal.indexTitles[section]
+        titleLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        titleLabel.textColor = .black
+        headerView.addSubview(titleLabel)
+        return headerView
+    }
+
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return self.contactListViewModal.indexTitles
+    }
+
     
 }
 
