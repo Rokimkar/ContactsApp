@@ -40,22 +40,27 @@ extension Contact: ContactViewModal{
         return self.phoneNumber ?? ""
     }
     
-    func updateContact(success: @escaping ()->Void){
+    func updateContact(success: @escaping (Contact,Bool)->Void){
         let appendedParameters: [String:Any] = [ServerConstants.firstName:self.contactName,ServerConstants.lastName:contactLastName,ServerConstants.phoneNumber:phoneNumberStr,ServerConstants.email:emailId]
         NetworkManager.fetchData(endPoint: UpdateContactEndpoint(contactId: self.id ?? 0, appendedParameters: appendedParameters), success: {[weak self] (response: Contact) in
             self?.favorite = response.favorite
-            success()
+            success(response,true)
         }) { (error: Error?) in
-            success()
+            success(Contact.init(),false)
         }
     }
     
-    func createContact(success: @escaping ()->Void){
+    func createContact(success: @escaping (Contact,Bool)->Void){
         let appendedParameters: [String:Any] = [ServerConstants.firstName:self.contactName,ServerConstants.lastName:contactLastName,ServerConstants.phoneNumber:phoneNumberStr,ServerConstants.email:emailId]
         NetworkManager.fetchData(endPoint: CreateContactEndpoint(appendedParameters: appendedParameters), success: { (contact: Contact?) in
-            success()
+            if let contact = contact{
+                success(contact,true)
+            }else{
+                success(Contact.init(),false)
+            }
+            
         }) { (error: Error?) in
-            success()
+            success(Contact.init(),false)
         }
     }
     

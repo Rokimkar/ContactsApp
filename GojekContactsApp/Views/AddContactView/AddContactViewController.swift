@@ -116,8 +116,8 @@ class AddContactViewController: UIViewController {
                 handleAlert(textField: textFieldEmptyTag!)
             }else{
                 if let _ = contact.id{
-                    contact.updateContact { [weak self] in
-                        if let contact = self?.contact{
+                    contact.updateContact { [weak self] (contact,shouldUpdate)in
+                        if shouldUpdate{
                             self?.updateContactDelegate?.updatedContact(contact: contact)
                         }
                         
@@ -126,7 +126,7 @@ class AddContactViewController: UIViewController {
                         })
                     }
                 }else{
-                    contact.createContact {[weak self] in
+                    contact.createContact {[weak self] (_,_) in
                         self?.dismiss(animated: true, completion: {
                             //
                         })

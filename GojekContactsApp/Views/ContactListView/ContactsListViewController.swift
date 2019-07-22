@@ -60,7 +60,7 @@ extension ContactsListViewController: UITableViewDataSource{
         if let cell = cell as? ContactListTableViewCell{
             cell.bindData(item: contactListViewModal.sortedContacts[indexPath.row])
         }
-        
+        cell.selectionStyle = .none
         return cell
     }
     
