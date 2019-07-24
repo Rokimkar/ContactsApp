@@ -98,7 +98,7 @@ extension ContactsListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Handle contact selection
         let detailVC: ContactDetailViewController = ContactDetailViewController(nibName: "ContactDetailViewController", bundle: nil)
-        detailVC.contactViewModel = contactListViewModal.sortedContacts[indexPath.row]
+        detailVC.contactViewModel = contactListViewModal.contactLists[indexPath.section][indexPath.row]
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
